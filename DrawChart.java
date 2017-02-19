@@ -48,16 +48,11 @@ public class DrawChart extends Application {
 			{
 				String[] temp = s[i].trim().split(":");
 				char letter =  temp[0].charAt(0);
-				//System.out.println(letter);
-
 				double val = Double.parseDouble(temp[1]);
-				sum += val;
-				
 				int idx = letter;
 				d[idx - 65] = val;
 				
 			}
-			System.out.println(sum);
 			
 			
 		}
