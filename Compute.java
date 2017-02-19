@@ -34,6 +34,7 @@ public class Compute {
 			if(letters.contains(temp))
 			{
 				int idx = (char) inputArray[i];
+				System.out.println(inputArray[i] + " :  " +  (idx - 65));
 				count[idx - 65]++;
 			}
 		
@@ -89,7 +90,8 @@ public class Compute {
 		else
 		{
 			String str = in.next();
-			q = new Compute(str);
+			input = str;
+			q = new Compute(input);
 		}
 		double[] temp = q.convertToPer();
 		System.out.println("\nDrawing bar chart...");
@@ -110,7 +112,8 @@ public class Compute {
 			shift = in.nextInt();
 			if(shift < 25)
 			{
-				plaintext = dec.shiftByN(input, shift);
+				dec.shiftByN(input, shift);
+				System.out.println(plaintext);
 			}
 			else
 			{
