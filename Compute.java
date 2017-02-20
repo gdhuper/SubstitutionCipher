@@ -94,18 +94,23 @@ public class Compute {
 			q = new Compute(input);
 		}
 		double[] temp = q.convertToPer();
+		
+		//Drawing bar graphs 
 		System.out.println("\nDrawing bar chart...");
 		DrawChart s = new DrawChart();
 		s.saveData();
 		s.count = temp;
 		s.main(args);
 		
+		
+		//User Input
 		System.out.println("Select Decrypting Method:\n" + "1: Shift by n \n" + "2: Enter Key");
-		int shift = 0;
+		int shift = 0; //shift amount for decrypting
 		char[] keys = new char[26];
-		int k = 65;
-		boolean done = false;
+		int k = 65; // Ascii for A
 		int idx = 0;
+		
+		// Shift by n
 		if(in.nextInt() == 1)
 		{
 			System.out.println("Enter shift amount: \n");
@@ -121,7 +126,7 @@ public class Compute {
 				
 			}
 		}
-		else{
+		else{ // substitution using key
 			System.out.println("Enter Key: \n");
 			while(idx < 26)
 			{

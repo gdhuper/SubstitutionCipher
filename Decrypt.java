@@ -35,17 +35,41 @@ public class Decrypt {
 		char[] in = input.toCharArray();
 		List list = Arrays.asList(keys);
 		
-
-		
+		for (int i = 0; i < keys.length; i++) {
+			System.out.println(keys[i]);
+		}
 		for(int i= 0; i< in.length; i++)
 		{
-			int idx = list.indexOf(in[i]);
+			//System.out.println(in[i]);
+			int idx = list.indexOf(in[i]+"");
+			//System.out.println(idx);
 			in[i] = (char) (65+idx);
+			//System.out.println(in[i]);
 		}
-		String plaintext = new String(in);
-		return plaintext;
+		//String plaintext = new String(in);
+		//return plaintext;
+		return "stuff";
 	}
 	
+	
+	public static void main(String[] args)
+	{
+		String input = "PBFPVYFBQXZTYFPBFEQJHDXXQVAPTPQJKTOYQWIPBWLXTOXBTFXQWA"
+				+ "XBVCXQWAXFQJVWLEQNTOZQGGQLFXQWAKVWLXQWAEBIPBFXFQVXGTVJV"
+				+"WLBTPQWAEBFPBFHCVLXBQUFEWLXGDPEQVPQGVPPBFTIXPFHXZHVFAG"
+				+"FOTHFEFBQUFTDHZBQPOTHXTYFTODXQHFTDPTOGHFQPBQWAQJJTODXQH"
+				+"FOQPWTBDHHIXQVAPBFZQHCFWPFHPBFIPBQWKFABVYYDZBOTHPBQPQJT"
+				+"QHGFXVAFXQHFUFHILTTAVWAFFAWTEVDITDHFHFQAITIXPFHXAFQHEFZ"
+				+ "QWGFLVWPTOFFA";
+		
+		char[] keys = {'Q', 'G', 'Z', 'A', 'F', 'O', 'L', 'B', 'V', 'M', 'K', 'J','Y', 'W', 'T', 'C', 'R','H','X', 'P','D','U'
+				, 'E', 'N', 'I', 'S'};
+		
+		Decrypt d = new Decrypt();
+		String s  = d.keySubstitution(input, keys);
+			
+		System.out.println(s);
+	}
 	
 
 }
