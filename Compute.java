@@ -106,7 +106,7 @@ public class Compute {
 		//User Input
 		System.out.println("Select Decrypting Method:\n" + "1: Shift by n \n" + "2: Enter Key");
 		int shift = 0; //shift amount for decrypting
-		char[] keys = new char[26];
+		Character[] keys = new Character[26];
 		int k = 65; // Ascii for A
 		int idx = 0;
 		
@@ -136,7 +136,7 @@ public class Compute {
 				idx++;
 			}
 			plaintext = dec.keySubstitution(input, keys);
-			System.out.println(plaintext);
+			System.out.println("Printing Plain text: \n" +plaintext);
 		}
 	}
 	

@@ -30,28 +30,28 @@ public class Decrypt {
 		//return "calling shift by n";
 	}
 	
-	public  String keySubstitution(String input, char[] keys)
+	public  String keySubstitution(String input, Character[] keys)
 	{
 		char[] in = input.toCharArray();
-		List list = Arrays.asList(keys);
+		List<Character> list = Arrays.asList(keys);
 		
-		for (int i = 0; i < keys.length; i++) {
-			System.out.println(keys[i]);
-		}
+		
 		for(int i= 0; i< in.length; i++)
 		{
 			//System.out.println(in[i]);
-			int idx = list.indexOf(in[i]+"");
+			int idx = list.indexOf(in[i]);
 			//System.out.println(idx);
 			in[i] = (char) (65+idx);
 			//System.out.println(in[i]);
 		}
-		//String plaintext = new String(in);
-		//return plaintext;
-		return "stuff";
+		String plaintext = new String(in);
+		return plaintext;
+		
 	}
 	
 	
+	
+	//Tester
 	public static void main(String[] args)
 	{
 		String input = "PBFPVYFBQXZTYFPBFEQJHDXXQVAPTPQJKTOYQWIPBWLXTOXBTFXQWA"
@@ -62,7 +62,7 @@ public class Decrypt {
 				+"QHGFXVAFXQHFUFHILTTAVWAFFAWTEVDITDHFHFQAITIXPFHXAFQHEFZ"
 				+ "QWGFLVWPTOFFA";
 		
-		char[] keys = {'Q', 'G', 'Z', 'A', 'F', 'O', 'L', 'B', 'V', 'M', 'K', 'J','Y', 'W', 'T', 'C', 'R','H','X', 'P','D','U'
+		Character[] keys = {'Q', 'G', 'Z', 'A', 'F', 'O', 'L', 'B', 'V', 'M', 'K', 'J','Y', 'W', 'T', 'C', 'R','H','X', 'P','D','U'
 				, 'E', 'N', 'I', 'S'};
 		
 		Decrypt d = new Decrypt();
