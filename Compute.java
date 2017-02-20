@@ -33,9 +33,9 @@ public class Compute {
 			String temp = "" +  inputArray[i];
 			if(letters.contains(temp))
 			{
-				int idx = (char) inputArray[i];
-				System.out.println(inputArray[i] + " :  " +  (idx - 65));
-				count[idx - 65]++;
+				int idx = letters.indexOf(temp);
+				System.out.println(inputArray[i] + " :  " +  idx);
+				count[idx]++;
 			}
 		
 		}
@@ -43,11 +43,11 @@ public class Compute {
 		
 	}
 	
-	public double[] convertToPer()
+	public double[] convertToPer(String input)
 	{
-		int[] c = readInput(this.input);
+		int[] c = readInput(input);
 		int cc = 65;
-		System.out.println("Printing letter frequenct for cipher text\n");
+		System.out.println("Printing letter frequencies for cipher text\n");
 		double sum = 0;
 		for(int val : c)
 		{
@@ -72,13 +72,7 @@ public class Compute {
 	public static void main(String[] args)
 	{
 		String plaintext = "";
-		String input = "PBFPVYFBQXZTYFPBFEQJHDXXQVAPTPQJKTOYQWIPBWLXTOXBTFXQWA"
-				+ "XBVCXQWAXFQJVWLEQNTOZQGGQLFXQWAKVWLXQWAEBIPBFXFQVXGTVJV"
-				+"WLBTPQWAEBFPBFHCVLXBQUFEWLXGDPEQVPQGVPPBFTIXPFHXZHVFAG"
-				+"FOTHFEFBQUFTDHZBQPOTHXTYFTODXQHFTDPTOGHFQPBQWAQJJTODXQH"
-				+"FOQPWTBDHHIXQVAPBFZQHCFWPFHPBFIPBQWKFABVYYDZBOTHPBQPQJT"
-				+"QHGFXVAFXQHFUFHILTTAVWAFFAWTEVDITDHFHFQAITIXPFHXAFQHEFZ"
-				+ "QWGFLVWPTOFFA";
+		String input = "PBFPVYFBQXZTYFPBFEQJHDXXQVAPTPQJKTOYQWIPBWLXTOXBTFXQWAXBVCXQWAXFQJVWLEQNTOZQGGQLFXQWAKVWLXQWAEBIPBFXFQVXGTVJVWLBTPQWAEBFPBFHCVLXBQUFEWLXGDPEQVPQGVPPBFTIXPFHXZHVFAGFOTHFEFBQUFTDHZBQPOTHXTYFTODXQHFTDPTOGHFQPBQWAQJJTODXQHFOQPWTBDHHIXQVAPBFZQHCFWPFHPBFIPBQWKFABVYYDZBOTHPBQPQJTQOTOGHFQAPBFEQJHDXXQVAVXEBQPEFZBVFOJIWFFACFCCFHQWAUVWFLQHGFXVAFXQHFUFHILTTAVWAFFAWTEVDITDHFHFQAITIXPFHXAFQHEFZQWGFLVWPTOFFA";
 		Compute q = null;
 		Decrypt dec = new Decrypt();
 		Scanner in = new Scanner(System.in);
@@ -93,7 +87,7 @@ public class Compute {
 			input = str;
 			q = new Compute(input.toUpperCase());
 		}
-		double[] temp = q.convertToPer();
+		double[] temp = q.convertToPer(input);
 		
 		//Drawing bar graphs 
 		System.out.println("\nDrawing bar chart...");
@@ -119,6 +113,7 @@ public class Compute {
 			{
 				dec.shiftByN(input.toUpperCase(), shift);
 				System.out.println(plaintext);
+				in.close();
 			}
 			else
 			{
@@ -137,6 +132,7 @@ public class Compute {
 			}
 			plaintext = dec.keySubstitution(input.toUpperCase(), keys);
 			System.out.println("Printing Plain text: \n" +plaintext);
+			in.close();
 		}
 	}
 	
