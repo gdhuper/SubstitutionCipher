@@ -66,7 +66,7 @@ public class Decrypt {
 				, 'E', 'N', 'I', 'S'};
 		
 		Decrypt d = new Decrypt();
-		String s  = d.keySubstitution(input, keys);
+		String s  = d.keySubstitution(input.toUpperCase(), keys);
 			
 		System.out.println(s);
 	}

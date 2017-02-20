@@ -91,7 +91,7 @@ public class Compute {
 		{
 			String str = in.next();
 			input = str;
-			q = new Compute(input);
+			q = new Compute(input.toUpperCase());
 		}
 		double[] temp = q.convertToPer();
 		
@@ -117,7 +117,7 @@ public class Compute {
 			shift = in.nextInt();
 			if(shift < 25)
 			{
-				dec.shiftByN(input, shift);
+				dec.shiftByN(input.toUpperCase(), shift);
 				System.out.println(plaintext);
 			}
 			else
@@ -135,7 +135,7 @@ public class Compute {
 				keys[idx] = keyVal;
 				idx++;
 			}
-			plaintext = dec.keySubstitution(input, keys);
+			plaintext = dec.keySubstitution(input.toUpperCase(), keys);
 			System.out.println("Printing Plain text: \n" +plaintext);
 		}
 	}
